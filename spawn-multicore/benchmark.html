@@ -1,0 +1,94 @@
+<p class="description">The benchmark spawns a large amount of processes/goroutines and calculates time/process. It runs both Go and Erlang using multicore CPUs.</p>
+<h1>Results</h1>
+<table>
+  <tr>
+    <th>N (log10(num_procs))</th>
+    <th>Go (µs/process)</th>    
+    <th>Go multicore (µs/process)</th>    
+    <th>Erlang (µs/process)</th>
+    <th>Erlang multicore (µs/process)</th>
+  </tr>
+  
+  <tr>
+  
+  <td>1.0</td>
+  
+  <td>0.5</td>
+  
+  <td>3.1</td>
+  
+  <td>0.0</td>
+  
+  <td>0.0</td>
+  
+  </tr>
+  
+  <tr>
+  
+  <td>2.0</td>
+  
+  <td>2.38</td>
+  
+  <td>1.75</td>
+  
+  <td>0.0</td>
+  
+  <td>0.0</td>
+  
+  </tr>
+  
+  <tr>
+  
+  <td>3.0</td>
+  
+  <td>1.431</td>
+  
+  <td>1.348</td>
+  
+  <td>5.0</td>
+  
+  <td>4.0</td>
+  
+  </tr>
+  
+  <tr>
+  
+  <td>4.0</td>
+  
+  <td>0.8448</td>
+  
+  <td>0.8987</td>
+  
+  <td>5.1</td>
+  
+  <td>5.0</td>
+  
+  </tr>
+  
+  <tr>
+  
+  <td>5.0</td>
+  
+  <td>0.75278</td>
+  
+  <td>0.95553</td>
+  
+  <td>5.68</td>
+  
+  <td>5.52</td>
+  
+  </tr>
+  
+</table>
+
+<div id="info">
+
+  
+  
+  
+
+  <a class="ceebox" href="spawn-multicore/spawn_go.html" rel="iframe">Go source</a>
+  <a class="ceebox" href="spawn-multicore/spawn_erlang.html" rel="iframe">Erlang source</a>
+  <a class="ceebox" href="spawn-multicore/system_info.html" rel="iframe">System info</a>
+</div>
+
