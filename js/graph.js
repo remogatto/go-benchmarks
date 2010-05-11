@@ -71,8 +71,14 @@ $(document).ready(function () {
 	st.push(r.text(100, 100 + i * 15, $(labels[i + 1]).text()).attr(r.g.txtattr).attr({fill: lines.lines[i].attrs.stroke, "text-anchor": "start"}));
       }
 
-      var rect = r.rect(st.getBBox().x - 10, st.getBBox().y - 10, st.getBBox().width + 20, st.getBBox().height + 20);
-      rect.attr({stroke: "#fff", fill: "#eee", "fill-opacity": "0.1"});
+			 var rect = r.rect(st.getBBox().x - 10, st.getBBox().y - 10, st.getBBox().width + 20, st.getBBox().height + 20, 5);
+      rect.attr({stroke: "#fff", fill: "#444", "fill-opacity": "0.5"});
+
+      // !HACK! Re-render the legend after the box (please find a better way to do this)
+      for (i = 0; i < numLines; i++) {
+	st.push(r.g.disc(70, 100 + i * 15, 5).attr({fill: lines.lines[i].attrs.stroke, stroke: "none"}));
+	st.push(r.text(100, 100 + i * 15, $(labels[i + 1]).text()).attr(r.g.txtattr).attr({fill: lines.lines[i].attrs.stroke, "text-anchor": "start"}));
+      }
 
       // Apply ceebox to a.ceebox links
       $(function () {
