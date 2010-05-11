@@ -47,7 +47,7 @@ $(document).ready(function () {
 		      this.tags = r.set();
 			for (var i = 0, ii = this.y.length; i < ii; i++) {
 				  this.tags.push(r.g.tag(this.x, this.y[i], this.values[i], 160, 10).insertBefore(this).attr([{fill: "#fff"}, {fill: "#000"}]));
-				  $($("tr")[this.colId + 1]).animate({backgroundColor: "red"});
+				  $($("tr")[this.colId + 1]).animate({backgroundColor: "#b00"});
 				}
 			      }, function () {
 				this.tags && this.tags.remove();
@@ -67,8 +67,8 @@ $(document).ready(function () {
       // Render legend
       var st = r.set();
       for (var i = 0; i < numLines; i++) {
-	st.push(r.g.disc(70, 100 + i * 15, 5).attr({fill: lines.lines[i].attrs.stroke, stroke: "none"}));
-	st.push(r.text(100, 100 + i * 15, $(labels[i + 1]).text()).attr(r.g.txtattr).attr({fill: lines.lines[i].attrs.stroke, "text-anchor": "start"}));
+	st.push(r.g.disc(70, 100 + i * 18, 5).attr({fill: lines.lines[i].attrs.stroke, stroke: "none"}));
+	st.push(r.text(100, 100 + i * 18, $(labels[i + 1]).text()).attr(r.g.txtattr).attr({fill: lines.lines[i].attrs.stroke, "text-anchor": "start", "font-weight": "bold"}));
       }
 
 			 var rect = r.rect(st.getBBox().x - 10, st.getBBox().y - 10, st.getBBox().width + 20, st.getBBox().height + 20, 5);
@@ -76,8 +76,8 @@ $(document).ready(function () {
 
       // !HACK! Re-render the legend after the box (please find a better way to do this)
       for (i = 0; i < numLines; i++) {
-	st.push(r.g.disc(70, 100 + i * 15, 5).attr({fill: lines.lines[i].attrs.stroke, stroke: "none"}));
-	st.push(r.text(100, 100 + i * 15, $(labels[i + 1]).text()).attr(r.g.txtattr).attr({fill: lines.lines[i].attrs.stroke, "text-anchor": "start"}));
+	st.push(r.g.disc(70, 100 + i * 18, 5).attr({fill: lines.lines[i].attrs.stroke, stroke: "none"}));
+	st.push(r.text(100, 100 + i * 18, $(labels[i + 1]).text()).attr(r.g.txtattr).attr({fill: lines.lines[i].attrs.stroke, "text-anchor": "start", "font-weight": "bold"}));
       }
 
       // Apply ceebox to a.ceebox links
