@@ -1,0 +1,28 @@
+<p class="description">The benchmark spawns a large amount of processes/goroutines and calculates time/process.</p>
+<h1>Results</h1>
+<table>
+  <tr>
+    <th>N (log10(num_procs))</th>
+    <th>Go (µs/process)</th>    
+    <th>Erlang (µs/process)</th>
+  </tr>
+  <% PROCESSES.map { |processes| Math.log10(processes) }.zip(RESULTS[:go], RESULTS[:erlang]).each do |row| %>
+  <%= "<tr>" %>
+  <% row.each do |data| %>
+  <%= "<td>#{data}</td>" %>
+  <% end %>
+  <%= "</tr>" %>
+  <% end %>
+</table>
+
+<div id="info">
+
+  <% go_link_path = File.join(File.basename(Dir.pwd), Dir.glob("*_go.html").first) %>
+  <% erlang_link_path = File.join(File.basename(Dir.pwd), Dir.glob("*_erlang.html").first) %>
+  <% system_info_link_path = File.join(File.basename(Dir.pwd), "system_info.html") %>
+
+  <a class="ceebox" href="<%= go_link_path %>" rel="iframe">Go source</a>
+  <a class="ceebox" href="<%= erlang_link_path %>" rel="iframe">Erlang source</a>
+  <a class="ceebox" href="<%= system_info_link_path %>" rel="iframe">System info</a>
+</div>
+

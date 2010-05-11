@@ -1,0 +1,40 @@
+Dir.glob(File.join(File.dirname(__FILE__), %w[.. lib *.rb])) { |fn| require fn }
+
+CLOBBER.include "spawn"
+
+PROCESSES = [10, 100, 1000, 10000, 100000]
+RESULTS = { :go => [], :erlang => [] }
+
+task :compile_spawn_erlang do
+  erlang_compile('spawn')
+end
+
+desc "Run spawn_erlang"
+task :spawn_erlang => :compile_spawn_erlang do
+  PROCESSES.each do |processes|
+    erlang_run('spawn', %W{ #{processes} +P 500000 }) do |result|
+      RESULTS[:erlang] << result
+    end
+  end
+end
+
+task :compile_spawn_go do
+  go_compile('spawn')
+end
+
+desc "Run spawn_go"
+task :spawn_go => :compile_spawn_go do
+  PROCESSES.each do |processes|
+    go_run('spawn', %W{ #{processes} }) do |result|
+      RESULTS[:go] << result
+    end
+  end
+end
+
+desc "Run benchmarks"
+task :spawn => [:clobber, :spawn_erlang, :spawn_go] do
+  write_results
+end
+
+task :default => :spawn
+

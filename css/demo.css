@@ -1,0 +1,125 @@
+body {
+    background-color: #000;
+    color: #fff
+}
+
+#wrap {
+    padding-top: 100px;
+}
+
+#header h1
+{
+    position: absolute;
+    left: 120px;
+    top: 20px;
+
+}
+
+#header h1 span
+{
+    margin-left: 10px;
+    font-size: 0.4em;
+    font-style: italic;
+}
+
+#choose-benchmark {
+    background-color: #eee;
+    height: 25px;
+    position: absolute;
+    right: 250px;
+    top: 20px;
+}
+
+#holder {
+    height: 500px;
+}
+
+#graph
+{
+    clear: both;
+    float: left;
+    margin-left: 20px;
+    width: 41%;
+}
+
+#benchmark
+{
+	float: left;
+	margin-left: 1%;
+	padding-left: 2%;
+	width: 53%;
+	margin-bottom: 10px;
+	border-left: 1px solid #fff;
+	min-height: 500px;
+}
+
+#benchmark table {
+    width: 100%;
+    margin-top: 10px;
+    text-align: left;
+    font-size: 0.75em;
+    border: 1px #fff solid;
+    border-collapse: collapse;
+}
+
+#benchmark table th {
+    background-color: #aaa;
+}
+
+#benchmark table td, #benchmark table th {
+    border-bottom: 1px #fff solid;
+    padding: 0.5em;
+}
+
+#footer
+{
+    clear: both;
+    padding-top: 20px;
+    margin: 0px;
+    text-align: center;
+    font-size: 0.8em;
+    color: #ccc;
+    border-top: 1px solid #fff;
+}
+
+#footer a, #footer a:visited {
+    color: #ccc;
+}
+
+#benchmark p {
+    margin-top: 20px;
+    margin-bottom: 40px;
+}
+
+p span {
+    font-weight: bold;
+}
+
+#benchmark h1 {
+    font-size: 1.3em;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#info {
+    margin-top: 50px;
+    text-align: center;
+}
+
+#info a {
+    text-decoration: underline;
+    padding: 0 10px 0 10px;
+}
+
+a.ceebox {
+    color: #fff;
+}
+
+a.ceebox:hover {
+    text-decoration: underline;
+}
+
+a.ceebox:visited {
+    color: #fff;
+}
