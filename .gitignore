@@ -1,6 +1,6 @@
 *.beam
 *.8
-*.html
+*/*.html
 spawn/spawn
 spawn-multicore/spawn
 *#
