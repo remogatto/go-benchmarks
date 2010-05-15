@@ -9,14 +9,14 @@ end
 desc "Run mandelbrot"
 task :run_mandelbrot => "mandelbrot" do
   time = {}
+  @size = 500
   %w{ 10 100 1000 }.each do |iter|
     @xvalues = %w{ 1 2 4 6 8 }.each do |proc|
-      go_run('mandelbrot', %W{-size 1000 -maxIter #{iter}}, "GOMAXPROCS=#{proc}") do |result|
+      go_run('mandelbrot', %W{-size #{@size} -maxIter #{iter}}, "GOMAXPROCS=#{proc}") do |result|
         (time[iter] ||= []) << result
       end
     end
   end
-
   @yvalues = time.each do |iter, result|
     time_0 = result[0].to_f
     result.map! do |r|
