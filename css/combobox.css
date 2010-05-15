@@ -44,7 +44,8 @@ a.combobox_button {
 	border: 1px solid #fff;
 	border-left: 0;
 	text-decoration: none;
-	color: #a00;
+	color: #f00;
+	font-weight: bold;
 }
 ul.combobox_summary {
 /*	required	*/	

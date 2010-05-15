@@ -1,6 +1,6 @@
 body {
     background-color: #000;
-    color: #fff
+    color: #fff;
 }
 
 #wrap {
@@ -10,8 +10,8 @@ body {
 #header h1
 {
     position: absolute;
-    left: 120px;
-    top: 20px;
+    left: 110px;
+    top: 30px;
 
 }
 
