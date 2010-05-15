@@ -59,7 +59,10 @@ $(document).ready(function () {
       lines.axis[1].text.attr("stroke", "#fff");
 
       // Render axis labels
-      var xLabel =  $($("th")[0]).text().match(/\((.*)\)/)[1];
+
+      // var xLabel =  $($("th")[0]).text().match(/\((.*)\)/)[1];
+
+      var xLabel =  $($("th")[0]).text();
       var yLabel =  $($("th")[1]).text().match(/\((.*)\)/)[1];
       r.text((lines.axis[0].getBBox().x + lines.axis[0].getBBox().width)/2, lines.axis[0].getBBox().y + 40, xLabel).attr({ fill: "#fff", "font-size": 18 });
       r.text(lines.axis[1].getBBox().x - 30, (lines.axis[1].getBBox().y + lines.axis[1].getBBox().height)/2, yLabel).rotate(-90).attr({ fill: "#fff", "font-size": 18 });
@@ -71,7 +74,7 @@ $(document).ready(function () {
 	st.push(r.text(100, 100 + i * 18, $(labels[i + 1]).text()).attr(r.g.txtattr).attr({fill: lines.lines[i].attrs.stroke, "text-anchor": "start", "font-weight": "bold"}));
       }
 
-			 var rect = r.rect(st.getBBox().x - 10, st.getBBox().y - 10, st.getBBox().width + 20, st.getBBox().height + 20, 5);
+      var rect = r.rect(st.getBBox().x - 10, st.getBBox().y - 10, st.getBBox().width + 20, st.getBBox().height + 20, 5);
       rect.attr({stroke: "#fff", fill: "#444", "fill-opacity": "0.5"});
 
       // !HACK! Re-render the legend after the box (please find a better way to do this)

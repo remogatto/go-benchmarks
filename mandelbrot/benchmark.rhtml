@@ -1,0 +1,32 @@
+<p class="description">
+Generate a mandelbrot fractal of size 1000x1000. Calculate the speedup
+varying GOMAXPROCS environment variable and the maxIter parameter. The
+chart shows that concurrency performances increase when maxITer
+increases.
+</p>
+<h1>Results</h1>
+<table>
+  <tr>
+    <th>GOMAXPROCS</th>
+    <th>Speedup 10 iter (time[0]/time[i])</th>    
+    <th>Speedup 100 iter (time[0]/time[i])</th>    
+    <th>Speedup 1000 iter (time[0]/time[i])</th>    
+  </tr>
+  <% @xvalues.zip(@yvalues['10'], @yvalues['100'], @yvalues['1000']).each do |row| %>
+  <%= "<tr>" %>
+  <% row.each do |data| %>
+  <%= "<td>#{data}</td>" %>
+  <% end %>
+  <%= "</tr>" %>
+  <% end %>
+</table>
+
+<div id="info">
+
+  <% go_link_path = File.join(File.basename(Dir.pwd), Dir.glob("*_go.html").first) %>
+  <% system_info_link_path = File.join(File.basename(Dir.pwd), "system_info.html") %>
+
+  <a class="ceebox" href="<%= go_link_path %>" rel="iframe">Go source</a>
+  <a class="ceebox" href="<%= system_info_link_path %>" rel="iframe">System info</a>
+</div>
+

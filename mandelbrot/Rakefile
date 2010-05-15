@@ -1,0 +1,37 @@
+Dir.glob(File.join(File.dirname(__FILE__), %w[.. lib *.rb])) { |fn| require fn }
+
+CLOBBER.include "mandelbrot"
+
+file "mandelbrot" => "mandelbrot.go" do
+  go_compile('mandelbrot')
+end
+
+desc "Run mandelbrot"
+task :run_mandelbrot => "mandelbrot" do
+  time = {}
+  %w{ 10 100 1000 }.each do |iter|
+    @xvalues = %w{ 1 2 4 6 8 }.each do |proc|
+      go_run('mandelbrot', %W{-size 1000 -maxIter #{iter}}, "GOMAXPROCS=#{proc}") do |result|
+        (time[iter] ||= []) << result
+      end
+    end
+  end
+
+  @yvalues = time.each do |iter, result|
+    time_0 = result[0].to_f
+    result.map! do |r|
+      time_0 / r.to_f
+    end
+  end
+
+end
+
+desc "Run benchmarks"
+task :run => [:run_mandelbrot] do
+  p @xvalues
+  write_results
+end
+
+task :default => :run
+
+

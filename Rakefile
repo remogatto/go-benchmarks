@@ -1,6 +1,6 @@
 require 'rake/clean'
 
-BENCHMARKS = %w{ spawn spawn-multicore }
+BENCHMARKS = %w{ spawn spawn-multicore mandelbrot}
 
 def run(task = nil)
   BENCHMARKS.each do |dir|
