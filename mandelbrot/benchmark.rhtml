@@ -1,8 +1,11 @@
 <p class="description">
-Generate a mandelbrot fractal of size 1000x1000. Calculate the speedup
-varying GOMAXPROCS environment variable and the maxIter parameter. The
-chart shows that concurrency performances increase when maxITer
-increases.
+
+Generate a mandelbrot fractal of size <%= @size %>x<%= @size
+%>. Calculate the speedup varying GOMAXPROCS environment variable and
+the maxIter parameter. The chart shows that the speedup increases when
+maxIter increases. In other words, concurrency is better exploited
+when the load of work of a single goroutine increases.
+
 </p>
 <h1>Results</h1>
 <table>
