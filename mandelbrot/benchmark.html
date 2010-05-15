@@ -1,0 +1,86 @@
+<p class="description">
+Generate a mandelbrot fractal of size 1000x1000. Calculate the speedup
+varying GOMAXPROCS environment variable and the maxIter parameter. The
+chart shows that concurrency performances increase when maxITer
+increases.
+</p>
+<h1>Results</h1>
+<table>
+  <tr>
+    <th>GOMAXPROCS</th>
+    <th>Speedup 10 iter (time[0]/time[i])</th>    
+    <th>Speedup 100 iter (time[0]/time[i])</th>    
+    <th>Speedup 1000 iter (time[0]/time[i])</th>    
+  </tr>
+  
+  <tr>
+  
+  <td>1</td>
+  
+  <td>1.0</td>
+  
+  <td>1.0</td>
+  
+  <td>1.0</td>
+  
+  </tr>
+  
+  <tr>
+  
+  <td>2</td>
+  
+  <td>1.75437283059961</td>
+  
+  <td>1.75091044915492</td>
+  
+  <td>1.84052117589686</td>
+  
+  </tr>
+  
+  <tr>
+  
+  <td>4</td>
+  
+  <td>1.80802412849828</td>
+  
+  <td>1.79757453743649</td>
+  
+  <td>1.8977334261623</td>
+  
+  </tr>
+  
+  <tr>
+  
+  <td>6</td>
+  
+  <td>1.85073233773693</td>
+  
+  <td>1.85144408787954</td>
+  
+  <td>1.8670421248906</td>
+  
+  </tr>
+  
+  <tr>
+  
+  <td>8</td>
+  
+  <td>1.78239524270502</td>
+  
+  <td>1.86026092564115</td>
+  
+  <td>1.89292557774663</td>
+  
+  </tr>
+  
+</table>
+
+<div id="info">
+
+  
+  
+
+  <a class="ceebox" href="mandelbrot/mandelbrot_go.html" rel="iframe">Go source</a>
+  <a class="ceebox" href="mandelbrot/system_info.html" rel="iframe">System info</a>
+</div>
+

@@ -25,13 +25,13 @@
     <body>
     <h1>CPU(s)</h1>
       <pre class="brush: plain">
-CPU INFO: Intel(R) Core(TM)2 CPU         T7400  @ 2.16GHz 1000.000MHz 4323.35 Bogomips 
-CPU INFO: Intel(R) Core(TM)2 CPU         T7400  @ 2.16GHz 1000.000MHz 4322.58 Bogomips 
+CPU INFO: Intel(R) Core(TM)2 CPU         T7400  @ 2.16GHz 2167.000MHz 4323.35 Bogomips 
+CPU INFO: Intel(R) Core(TM)2 CPU         T7400  @ 2.16GHz 2167.000MHz 4322.58 Bogomips 
       </pre>
 
     <h1>Memory</h1>
       <pre class="brush: plain">
-Memory: 536/1982MB(28%)
+Memory: 539/1982MB(28%)
       </pre>
 
     <h1>Kernel</h1>
@@ -45,28 +45,23 @@ OS/Kernel: Linux 2.6.32-22-generic
 
       </pre>
 
-    <h1>Erlang version</h1>
-      <pre class="brush: plain">
-Erlang (SMP,ASYNC_THREADS,HIPE) (BEAM) emulator version 5.7.4
-
-      </pre>
-
     <h1>Go command line</h1>
       <pre class="brush: plain">
-sh -c " ./spawn 10"
-sh -c " ./spawn 100"
-sh -c " ./spawn 1000"
-sh -c " ./spawn 10000"
-sh -c " ./spawn 100000"
-      </pre>
-
-    <h1>Erlang command line</h1>
-      <pre class="brush: plain">
-erl -noshell -pa /home/andrea/src/go-benchmarks/spawn -s spawn start 10 -s init stop +P 500000
-erl -noshell -pa /home/andrea/src/go-benchmarks/spawn -s spawn start 100 -s init stop +P 500000
-erl -noshell -pa /home/andrea/src/go-benchmarks/spawn -s spawn start 1000 -s init stop +P 500000
-erl -noshell -pa /home/andrea/src/go-benchmarks/spawn -s spawn start 10000 -s init stop +P 500000
-erl -noshell -pa /home/andrea/src/go-benchmarks/spawn -s spawn start 100000 -s init stop +P 500000
+sh -c "GOMAXPROCS=1 ./mandelbrot -size 1000 -maxIter 10"
+sh -c "GOMAXPROCS=2 ./mandelbrot -size 1000 -maxIter 10"
+sh -c "GOMAXPROCS=4 ./mandelbrot -size 1000 -maxIter 10"
+sh -c "GOMAXPROCS=6 ./mandelbrot -size 1000 -maxIter 10"
+sh -c "GOMAXPROCS=8 ./mandelbrot -size 1000 -maxIter 10"
+sh -c "GOMAXPROCS=1 ./mandelbrot -size 1000 -maxIter 100"
+sh -c "GOMAXPROCS=2 ./mandelbrot -size 1000 -maxIter 100"
+sh -c "GOMAXPROCS=4 ./mandelbrot -size 1000 -maxIter 100"
+sh -c "GOMAXPROCS=6 ./mandelbrot -size 1000 -maxIter 100"
+sh -c "GOMAXPROCS=8 ./mandelbrot -size 1000 -maxIter 100"
+sh -c "GOMAXPROCS=1 ./mandelbrot -size 1000 -maxIter 1000"
+sh -c "GOMAXPROCS=2 ./mandelbrot -size 1000 -maxIter 1000"
+sh -c "GOMAXPROCS=4 ./mandelbrot -size 1000 -maxIter 1000"
+sh -c "GOMAXPROCS=6 ./mandelbrot -size 1000 -maxIter 1000"
+sh -c "GOMAXPROCS=8 ./mandelbrot -size 1000 -maxIter 1000"
       </pre>
 
     </body>
