@@ -1,3 +1,8 @@
+// This code was originally contributed by Dr. David Alan Gilbert on
+// thr golang ML
+//
+// http://groups.google.com/group/golang-nuts/browse_thread/thread/e5a65b94b27a1916/838087508caf0873?lnk=gst&q=mandelbrot#838087508caf0873
+//
 // Dave Gilbert's parallel mandelbrot.  Inspiration and the odd line of code
 // drawn from the mandelbrot bench in the go distrobution
 // d...@treblig.org
