@@ -1,7 +1,7 @@
 *.beam
 *.8
 spawn/spawn
-spawn-multicore/spawn
+mandelbrot/mandelbrot
 *#
 *~
 
