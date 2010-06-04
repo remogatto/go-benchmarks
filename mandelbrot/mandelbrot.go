@@ -53,11 +53,15 @@ func doPoint(x, y int, xval, yval float) {
 }
 
 func doRow(y int, yval float, ack chan bool) {
+	start := time.Nanoseconds()
         for x := 0; x < *size; x++ {
                 doPoint(x, y, valInRange(*left, *right, *size, x), yval)
         }
 
         ack <- true;
+	fmt.Printf("Partial calculation takes %f microseconds\n", 
+		float(time.Nanoseconds() - start) / float(10e6))
+
 
 }
 

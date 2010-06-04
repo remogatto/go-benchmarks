@@ -75,6 +75,10 @@ def erlang_run(prog, args = [])
 end
 
 def go_compile(prog)
+  sh "#{GO_COMPILER} #{prog}.go"
+end
+
+def go_compile_and_link(prog)
   sh "#{GO_COMPILER} #{prog}.go && #{GO_LINKER} -o #{prog} #{prog}.#{GO_EXT}"
 end
 

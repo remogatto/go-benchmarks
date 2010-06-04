@@ -1,0 +1,23 @@
+Dir.glob(File.join(File.dirname(__FILE__), %w[.. lib *.rb])) { |fn| require fn }
+
+CLOBBER.include "calcpi"
+
+file "calcpi" => ["calcpi.go", "pi.go"] do
+  go_compile("pi")
+  go_compile_and_link('calcpi')
+end
+
+desc "Run calcpi"
+task :run_calcpi => "calcpi" do
+  go_run('calcpi', %W{-iter 5000 -processes 100}, "GOMAXPROCS=1") { |result| print result }
+  go_run('calcpi', %W{-iter 5000 -processes 100}, "GOMAXPROCS=2") { |result| print result }
+end
+
+desc "Run benchmarks"
+task :run => [:run_calcpi] do
+  write_results
+end
+
+task :default => :run
+
+
