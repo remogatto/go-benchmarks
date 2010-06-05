@@ -88,7 +88,8 @@ body {
 
 #benchmark p {
     margin-top: 20px;
-    margin-bottom: 40px;
+    margin-bottom: 20px;
+    text-align: justify;
 }
 
 p span {
@@ -100,6 +101,11 @@ p span {
     font-weight: bold;
     text-align: center;
     margin-bottom: 20px;
+}
+
+#benchmark div.description ul {
+  padding-left: 4%;
+  margin-bottom: 20px;
 }
 
 #info {

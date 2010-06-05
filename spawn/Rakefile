@@ -19,7 +19,7 @@ task :spawn_erlang => :compile_spawn_erlang do
 end
 
 task :compile_spawn_go do
-  go_compile('spawn')
+  go_compile_and_link('spawn')
 end
 
 desc "Run spawn_go"
