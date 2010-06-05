@@ -1,3 +1,8 @@
+<div id="meta">
+  <p id="x_label">GOMAXPROCS</p>
+  <p id="y_label">Speedup</p>
+</div>
+
 <p class="description">
 
 Generate a mandelbrot fractal of size 500x500. Calculate the speedup varying GOMAXPROCS environment variable and
@@ -6,13 +11,12 @@ maxIter increases. In other words, concurrency is better exploited
 when the load of work of a single goroutine increases.
 
 </p>
-<h1>Results</h1>
 <table>
   <tr>
     <th>GOMAXPROCS</th>
-    <th>Speedup 10 iter (time[0]/time[i])</th>    
-    <th>Speedup 100 iter (time[0]/time[i])</th>    
-    <th>Speedup 1000 iter (time[0]/time[i])</th>    
+    <th>Speedup 10 iter</th>    
+    <th>Speedup 100 iter</th>    
+    <th>Speedup 1000 iter</th>    
   </tr>
   
   <tr>
@@ -31,11 +35,11 @@ when the load of work of a single goroutine increases.
   
   <td>2</td>
   
-  <td>1.64426877470356</td>
+  <td>1.70316928626643</td>
   
-  <td>1.74820143884892</td>
+  <td>1.85730813729271</td>
   
-  <td>1.87159376571141</td>
+  <td>1.93956826938302</td>
   
   </tr>
   
@@ -43,11 +47,11 @@ when the load of work of a single goroutine increases.
   
   <td>4</td>
   
-  <td>1.48108589230085</td>
+  <td>1.81593406593407</td>
   
-  <td>1.74631692418254</td>
+  <td>1.80340760157274</td>
   
-  <td>1.8365977601263</td>
+  <td>1.93364903972639</td>
   
   </tr>
   
@@ -55,11 +59,11 @@ when the load of work of a single goroutine increases.
   
   <td>6</td>
   
-  <td>1.53364055299539</td>
+  <td>1.71688311688312</td>
   
-  <td>1.75609756097561</td>
+  <td>1.82044982044982</td>
   
-  <td>1.82319521990401</td>
+  <td>1.93385254959743</td>
   
   </tr>
   
@@ -67,11 +71,11 @@ when the load of work of a single goroutine increases.
   
   <td>8</td>
   
-  <td>1.60346904360395</td>
+  <td>1.83407325194229</td>
   
-  <td>1.70227670753065</td>
+  <td>1.79333457456712</td>
   
-  <td>1.7621775147929</td>
+  <td>1.93834062978005</td>
   
   </tr>
   
