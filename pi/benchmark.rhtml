@@ -1,0 +1,49 @@
+<div id="meta">
+  <p id="x_label">GOMAXPROCS</p>
+  <p id="y_label">Speedup</p>
+  <p id="legend_xpos">70</p>
+  <p id="legend_ypos">50</p>
+</div>
+
+<div class="description">
+<p>
+Calculate an approximated PI value using the following algorithm:
+<ul>
+  <li>Inscribe a circle in a square</li>
+  <li>Randomly generate points in the square</li>
+  <li>Determine the number of points in the square that are also in the circle</li>
+  <li>Let r be the number of points in the circle divided by the number of points in the square</li>
+  <li>PI ~ 4 r</li>
+</ul>
+</p>
+</div>
+<h1>Results</h1>
+<table>
+  <tr>
+    <th>GOMAXPROCS</th>
+    <th>Speedup 10 iter (time[0]/time[i])</th>    
+    <th>Speedup 100 iter (time[0]/time[i])</th>    
+    <th>Speedup 1000 iter (time[0]/time[i])</th>    
+    <th>Speedup 10000 iter (time[0]/time[i])</th>
+  </tr>
+  <% @xvalues.zip(@yvalues['10'], @yvalues['100'], @yvalues['1000'], @yvalues['10000']).each do |row| %>
+  <%= "<tr>" %>
+  <% row.each do |data| %>
+  <%= "<td>#{data}</td>" %>
+  <% end %>
+  <%= "</tr>" %>
+  <% end %>
+</table>
+
+<div id="info">
+
+  <% system_info_link_path = File.join(File.basename(Dir.pwd), "system_info.html") %>
+  
+  <% Dir.glob("*_go.html").each do |fn| %>
+  <% go_link_path = File.join(File.basename(Dir.pwd), fn) %>
+  <a class="ceebox" href="<%= go_link_path %>" rel="iframe"><%= fn %></a>
+  <% end %>
+
+  <a class="ceebox" href="<%= system_info_link_path %>" rel="iframe">System info</a>
+</div>
+

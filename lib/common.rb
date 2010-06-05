@@ -6,7 +6,7 @@ GO_COMPILER = GO_SYSTEM_INFO[ENV['GOARCH']] + 'g'
 GO_LINKER = GO_SYSTEM_INFO[ENV['GOARCH']] + 'l'
 GO_EXT = GO_SYSTEM_INFO[ENV['GOARCH']]
 
-CLOBBER.include '*.beam', "*.dump", "#*", "*.#{GO_EXT}", "*.html"
+CLOBBER.include '*.beam', "*.dump", "#*", "*.#{GO_EXT}", "*.html", "_test", "*.out"
 
 def get_uptime
   'Uptime: ' + `uptime`[/up (.+?),/,1]
@@ -75,6 +75,10 @@ def erlang_run(prog, args = [])
 end
 
 def go_compile(prog)
+  sh "#{GO_COMPILER} #{prog}.go"
+end
+
+def go_compile_and_link(prog)
   sh "#{GO_COMPILER} #{prog}.go && #{GO_LINKER} -o #{prog} #{prog}.#{GO_EXT}"
 end
 

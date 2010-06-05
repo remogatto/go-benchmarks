@@ -35,6 +35,10 @@ $(document).ready(function () {
     r.g.txtattr.font = "12px 'Fontin Sans', Fontin-Sans, sans-serif";
 
     $("#results").load(name, function(response, success, request) {
+
+      // Hide meta information
+      $("#meta").hide();
+
       cols = $("table th");
       labels = $("table th");
       numLines = cols.length - 1;
@@ -62,16 +66,20 @@ $(document).ready(function () {
 
       // var xLabel =  $($("th")[0]).text().match(/\((.*)\)/)[1];
 
-      var xLabel =  $($("th")[0]).text();
-      var yLabel =  $($("th")[1]).text().match(/\((.*)\)/)[1];
-      r.text((lines.axis[0].getBBox().x + lines.axis[0].getBBox().width)/2, lines.axis[0].getBBox().y + 40, xLabel).attr({ fill: "#fff", "font-size": 18 });
-      r.text(lines.axis[1].getBBox().x - 30, (lines.axis[1].getBBox().y + lines.axis[1].getBBox().height)/2, yLabel).rotate(-90).attr({ fill: "#fff", "font-size": 18 });
+      // Grab meta information
+      var x_label = $("#meta p#x_label").text() || $($("th")[0]).text();
+      var y_label = $("#meta p#y_label").text() ||  $($("th")[1]).text().match(/\((.*)\)/)[1];
+      var legend_xpos = parseInt($("#meta p#legend_xpos").text()) || 60;
+      var legend_ypos = parseInt($("#meta p#legend_ypos").text()) || 100;
+
+      r.text((lines.axis[0].getBBox().x + lines.axis[0].getBBox().width)/2, lines.axis[0].getBBox().y + 40, x_label).attr({ fill: "#fff", "font-size": 18 });
+      r.text(lines.axis[1].getBBox().x - 30, (lines.axis[1].getBBox().y + lines.axis[1].getBBox().height)/2, y_label).rotate(-90).attr({ fill: "#fff", "font-size": 18 });
 
       // Render legend
       var st = r.set();
       for (var i = 0; i < numLines; i++) {
-	st.push(r.g.disc(70, 100 + i * 18, 5).attr({fill: lines.lines[i].attrs.stroke, stroke: "none"}));
-	st.push(r.text(100, 100 + i * 18, $(labels[i + 1]).text()).attr(r.g.txtattr).attr({fill: lines.lines[i].attrs.stroke, "text-anchor": "start", "font-weight": "bold"}));
+	st.push(r.g.disc(legend_xpos + 10, legend_ypos + i * 18, 5).attr({fill: lines.lines[i].attrs.stroke, stroke: "none"}));
+	st.push(r.text(legend_xpos + 40, legend_ypos + i * 18, $(labels[i + 1]).text()).attr(r.g.txtattr).attr({fill: lines.lines[i].attrs.stroke, "text-anchor": "start", "font-weight": "bold"}));
       }
 
       var rect = r.rect(st.getBBox().x - 10, st.getBBox().y - 10, st.getBBox().width + 20, st.getBBox().height + 20, 5);
@@ -79,8 +87,8 @@ $(document).ready(function () {
 
       // !HACK! Re-render the legend after the box (please find a better way to do this)
       for (i = 0; i < numLines; i++) {
-	st.push(r.g.disc(70, 100 + i * 18, 5).attr({fill: lines.lines[i].attrs.stroke, stroke: "none"}));
-	st.push(r.text(100, 100 + i * 18, $(labels[i + 1]).text()).attr(r.g.txtattr).attr({fill: lines.lines[i].attrs.stroke, "text-anchor": "start", "font-weight": "bold"}));
+		st.push(r.g.disc(legend_xpos + 10, legend_ypos + i * 18, 5).attr({fill: lines.lines[i].attrs.stroke, stroke: "none"}));
+	st.push(r.text(legend_xpos + 40, legend_ypos + i * 18, $(labels[i + 1]).text()).attr(r.g.txtattr).attr({fill: lines.lines[i].attrs.stroke, "text-anchor": "start", "font-weight": "bold"}));
       }
 
       // Apply ceebox to a.ceebox links
