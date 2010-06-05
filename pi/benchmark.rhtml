@@ -15,18 +15,17 @@ Calculate an approximated PI value using the following algorithm:
 </ul>
 </p>
 <p>
-For each program run, 1000 goroutine are spawned. Each goroutine randomly generate <i>iter</i> points in the square and check for points that are also in the circle. You may note that for low <i>iter</i> value the program doesn't scale so much. It seems that concurrency is better exploited when the load of work of the single goroutine increases (i.e. 10000 iterations per goroutine).
+For each program run, <%= @processes %> goroutines are spawned. Each goroutine randomly generate <i>iter</i> points in the square and check for points that are also in the circle. You may note that for low <i>iter</i> value the program doesn't scale so much. It seems that concurrency is better exploited when the load of work of the single goroutine increases (i.e. 10000 iterations per goroutine).
 </p>
 </div>
 <table>
   <tr>
     <th>GOMAXPROCS</th>
-    <th>Speedup 10 iter</th>    
     <th>Speedup 100 iter</th>    
     <th>Speedup 1000 iter</th>    
     <th>Speedup 10000 iter</th>
   </tr>
-  <% @xvalues.zip(@yvalues['10'], @yvalues['100'], @yvalues['1000'], @yvalues['10000']).each do |row| %>
+  <% @xvalues.zip(@yvalues['100'], @yvalues['1000'], @yvalues['10000']).each do |row| %>
   <%= "<tr>" %>
   <% row.each do |data| %>
   <%= "<td>#{data}</td>" %>

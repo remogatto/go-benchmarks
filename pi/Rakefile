@@ -11,11 +11,11 @@ desc "Run calcpi"
 task :run_calcpi => "calcpi" do
 
   time = {}
-  @processes = 100
+  @processes = 1000
 
-  %w{ 10 100 1000 10000}.each do |iter|
+  %w{ 100 1000 10000}.each do |iter|
     @xvalues = %w{ 1 2 4 6 8 }.each do |gomaxprocs|
-      go_run('calcpi', %W{-iter #{iter} -processes 1000}, "GOMAXPROCS=#{gomaxprocs}") do |result|
+      go_run('calcpi', %W{-iter #{iter} -processes #{@processes}}, "GOMAXPROCS=#{gomaxprocs}") do |result|
         (time[iter] ||= []) << result
       end
     end
