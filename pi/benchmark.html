@@ -1,0 +1,119 @@
+<div id="meta">
+  <p id="x_label">GOMAXPROCS</p>
+  <p id="y_label">Speedup</p>
+  <p id="legend_xpos">70</p>
+  <p id="legend_ypos">50</p>
+</div>
+
+<div class="description">
+<p>
+Calculate an approximated PI value using the following algorithm:
+<ul>
+  <li>Inscribe a circle in a square</li>
+  <li>Randomly generate points in the square</li>
+  <li>Determine the number of points in the square that are also in the circle</li>
+  <li>Let r be the number of points in the circle divided by the number of points in the square</li>
+  <li>PI ~ 4 r</li>
+</ul>
+</p>
+</div>
+<h1>Results</h1>
+<table>
+  <tr>
+    <th>GOMAXPROCS</th>
+    <th>Speedup 10 iter (time[0]/time[i])</th>    
+    <th>Speedup 100 iter (time[0]/time[i])</th>    
+    <th>Speedup 1000 iter (time[0]/time[i])</th>    
+    <th>Speedup 10000 iter (time[0]/time[i])</th>
+  </tr>
+  
+  <tr>
+  
+  <td>1</td>
+  
+  <td>1.0</td>
+  
+  <td>1.0</td>
+  
+  <td>1.0</td>
+  
+  <td>1.0</td>
+  
+  </tr>
+  
+  <tr>
+  
+  <td>2</td>
+  
+  <td>1.39998949193506</td>
+  
+  <td>1.55030889752245</td>
+  
+  <td>1.69689366909445</td>
+  
+  <td>1.88866247136563</td>
+  
+  </tr>
+  
+  <tr>
+  
+  <td>4</td>
+  
+  <td>1.37308049056993</td>
+  
+  <td>1.29145797962649</td>
+  
+  <td>1.38109449811004</td>
+  
+  <td>1.87683031692561</td>
+  
+  </tr>
+  
+  <tr>
+  
+  <td>6</td>
+  
+  <td>1.30472145034337</td>
+  
+  <td>1.23318776407648</td>
+  
+  <td>1.60044361625817</td>
+  
+  <td>1.85341153617077</td>
+  
+  </tr>
+  
+  <tr>
+  
+  <td>8</td>
+  
+  <td>1.15148765152006</td>
+  
+  <td>1.44037066404724</td>
+  
+  <td>1.48787090602357</td>
+  
+  <td>1.91280913535364</td>
+  
+  </tr>
+  
+</table>
+
+<div id="info">
+
+  
+  
+  
+  
+  <a class="ceebox" href="pi/pi_test_go.html" rel="iframe">pi_test_go.html</a>
+  
+  
+  <a class="ceebox" href="pi/calcpi_go.html" rel="iframe">calcpi_go.html</a>
+  
+  
+  <a class="ceebox" href="pi/pi_go.html" rel="iframe">pi_go.html</a>
+  
+
+  <a class="ceebox" href="pi/system_info.html" rel="iframe">System info</a>
+</div>
+

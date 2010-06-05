@@ -1,0 +1,75 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+        <link rel="stylesheet" href="../css/shCore.css" type="text/css" media="screen" charset="utf-8">
+        <link rel="stylesheet" href="../css/shThemeEmacs.css" type="text/css" media="screen" charset="utf-8">
+
+        <script src="../js/shCore.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../js/shBrushErlang.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../js/shBrushGo.js" type="text/javascript" charset="utf-8"></script>
+
+	<script type="text/javascript">
+	  SyntaxHighlighter.all()
+	</script>
+
+	<style type="text/css" media="screen">
+	  body {
+	    background-color: #000;
+	    color: #fff;
+          }
+	</style>
+
+    </head>
+    <body>
+      <h1>pi.go</h1>
+      <pre class="brush: go">
+package pi
+
+import (
+	"rand"
+	"time"
+)
+
+func getCoord(rg *rand.Rand) float64 {
+	return -1 + rg.Float64()
+}
+
+func calcPartialPI(result chan<- float64, iter int) {
+	var circle, i int
+
+	rg := rand.New(rand.NewSource(time.Nanoseconds() % 1e9))
+
+	for i = 0; i < iter; i++ {
+		x, y := getCoord(rg), getCoord(rg)
+		if (x * x + y * y) < 1.0 {
+			circle++
+		
+		}
+	}
+
+	result <- 4 * float64(circle) / float64(i)
+}
+
+func CalcPI(iter, processes int) float64 {
+	var acc float64
+
+	result := make(chan float64, processes)
+	
+	for i := 0; i < processes; i++ {
+		go calcPartialPI(result, iter)
+	}
+	
+	for i := 0; i < processes; i++ {
+		acc += <-result
+	}
+
+	return acc / float64(processes)
+}
+
+      </pre>
+    </body>
+</html>
+

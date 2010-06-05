@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+        <link rel="stylesheet" href="../css/shCore.css" type="text/css" media="screen" charset="utf-8">
+        <link rel="stylesheet" href="../css/shThemeEmacs.css" type="text/css" media="screen" charset="utf-8">
+
+        <script src="../js/shCore.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../js/shBrushErlang.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../js/shBrushGo.js" type="text/javascript" charset="utf-8"></script>
+
+	<script type="text/javascript">
+	  SyntaxHighlighter.all()
+	</script>
+
+	<style type="text/css" media="screen">
+	  body {
+	    background-color: #000;
+	    color: #fff;
+          }
+	</style>
+
+    </head>
+    <body>
+      <h1>pi_test.go</h1>
+      <pre class="brush: go">
+package pi
+
+import (
+	"testing"
+	"math"
+)
+
+
+func TestCalcPI(t *testing.T) {
+	result := math.Fabs(CalcPI(5000, 10) - math.Pi)
+	expected := float64(0.1)
+	if result > expected {
+		t.Errorf("Expected %s found %s", expected, result)
+	}
+}
+
+      </pre>
+    </body>
+</html>
+
