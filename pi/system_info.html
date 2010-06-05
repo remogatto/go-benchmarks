@@ -25,13 +25,13 @@
     <body>
     <h1>CPU(s)</h1>
       <pre class="brush: plain">
-CPU INFO: Intel(R) Core(TM)2 CPU         T7400  @ 2.16GHz 2167.000MHz 4322.83 Bogomips 
+CPU INFO: Intel(R) Core(TM)2 CPU         T7400  @ 2.16GHz 1000.000MHz 4322.83 Bogomips 
 CPU INFO: Intel(R) Core(TM)2 CPU         T7400  @ 2.16GHz 2167.000MHz 4322.63 Bogomips 
       </pre>
 
     <h1>Memory</h1>
       <pre class="brush: plain">
-Memory: 78/1982MB(4%)
+Memory: 680/1982MB(35%)
       </pre>
 
     <h1>Kernel</h1>
@@ -47,11 +47,6 @@ OS/Kernel: Linux 2.6.32-22-generic
 
     <h1>Go command line</h1>
       <pre class="brush: plain">
-sh -c "GOMAXPROCS=1 ./calcpi -iter 10 -processes 1000"
-sh -c "GOMAXPROCS=2 ./calcpi -iter 10 -processes 1000"
-sh -c "GOMAXPROCS=4 ./calcpi -iter 10 -processes 1000"
-sh -c "GOMAXPROCS=6 ./calcpi -iter 10 -processes 1000"
-sh -c "GOMAXPROCS=8 ./calcpi -iter 10 -processes 1000"
 sh -c "GOMAXPROCS=1 ./calcpi -iter 100 -processes 1000"
 sh -c "GOMAXPROCS=2 ./calcpi -iter 100 -processes 1000"
 sh -c "GOMAXPROCS=4 ./calcpi -iter 100 -processes 1000"

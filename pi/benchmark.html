@@ -1,8 +1,6 @@
 <div id="meta">
   <p id="x_label">GOMAXPROCS</p>
   <p id="y_label">Speedup</p>
-  <p id="legend_xpos">70</p>
-  <p id="legend_ypos">50</p>
 </div>
 
 <div class="description">
@@ -16,22 +14,21 @@ Calculate an approximated PI value using the following algorithm:
   <li>PI ~ 4 r</li>
 </ul>
 </p>
+<p>
+For each program run, 1000 goroutines are spawned. Each goroutine randomly generate <i>iter</i> points in the square and check for points that are also in the circle. You may note that for low <i>iter</i> value the program doesn't scale so much. It seems that concurrency is better exploited when the load of work of the single goroutine increases (i.e. 10000 iterations per goroutine).
+</p>
 </div>
-<h1>Results</h1>
 <table>
   <tr>
     <th>GOMAXPROCS</th>
-    <th>Speedup 10 iter (time[0]/time[i])</th>    
-    <th>Speedup 100 iter (time[0]/time[i])</th>    
-    <th>Speedup 1000 iter (time[0]/time[i])</th>    
-    <th>Speedup 10000 iter (time[0]/time[i])</th>
+    <th>Speedup 100 iter</th>    
+    <th>Speedup 1000 iter</th>    
+    <th>Speedup 10000 iter</th>
   </tr>
   
   <tr>
   
   <td>1</td>
-  
-  <td>1.0</td>
   
   <td>1.0</td>
   
@@ -45,13 +42,11 @@ Calculate an approximated PI value using the following algorithm:
   
   <td>2</td>
   
-  <td>1.39998949193506</td>
+  <td>1.38110635813489</td>
   
-  <td>1.55030889752245</td>
+  <td>1.90791735740161</td>
   
-  <td>1.69689366909445</td>
-  
-  <td>1.88866247136563</td>
+  <td>1.95392080550612</td>
   
   </tr>
   
@@ -59,13 +54,11 @@ Calculate an approximated PI value using the following algorithm:
   
   <td>4</td>
   
-  <td>1.37308049056993</td>
+  <td>1.56032066161828</td>
   
-  <td>1.29145797962649</td>
+  <td>1.87362169413857</td>
   
-  <td>1.38109449811004</td>
-  
-  <td>1.87683031692561</td>
+  <td>1.96499556352403</td>
   
   </tr>
   
@@ -73,13 +66,11 @@ Calculate an approximated PI value using the following algorithm:
   
   <td>6</td>
   
-  <td>1.30472145034337</td>
+  <td>1.3647872009941</td>
   
-  <td>1.23318776407648</td>
+  <td>1.67611046684107</td>
   
-  <td>1.60044361625817</td>
-  
-  <td>1.85341153617077</td>
+  <td>1.93011001801074</td>
   
   </tr>
   
@@ -87,13 +78,11 @@ Calculate an approximated PI value using the following algorithm:
   
   <td>8</td>
   
-  <td>1.15148765152006</td>
+  <td>1.33661117872044</td>
   
-  <td>1.44037066404724</td>
+  <td>1.64863251717643</td>
   
-  <td>1.48787090602357</td>
-  
-  <td>1.91280913535364</td>
+  <td>1.916094030657</td>
   
   </tr>
   
@@ -105,13 +94,13 @@ Calculate an approximated PI value using the following algorithm:
   
   
   
-  <a class="ceebox" href="pi/pi_test_go.html" rel="iframe">pi_test_go.html</a>
+  <a class="ceebox" href="pi/pi_test_go.html" rel="iframe">pi_test.go</a>
   
   
-  <a class="ceebox" href="pi/calcpi_go.html" rel="iframe">calcpi_go.html</a>
+  <a class="ceebox" href="pi/calcpi_go.html" rel="iframe">calcpi.go</a>
   
   
-  <a class="ceebox" href="pi/pi_go.html" rel="iframe">pi_go.html</a>
+  <a class="ceebox" href="pi/pi_go.html" rel="iframe">pi.go</a>
   
 
   <a class="ceebox" href="pi/system_info.html" rel="iframe">System info</a>
