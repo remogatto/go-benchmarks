@@ -2,6 +2,9 @@
 *.8
 spawn/spawn
 mandelbrot/mandelbrot
+pi/calcpi
 *#
 *~
+_test/
+*.out
 

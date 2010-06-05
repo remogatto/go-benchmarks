@@ -3,7 +3,7 @@ Dir.glob(File.join(File.dirname(__FILE__), %w[.. lib *.rb])) { |fn| require fn }
 CLOBBER.include "mandelbrot"
 
 file "mandelbrot" => "mandelbrot.go" do
-  go_compile('mandelbrot')
+  go_compile_and_link('mandelbrot')
 end
 
 desc "Run mandelbrot"
@@ -23,7 +23,6 @@ task :run_mandelbrot => "mandelbrot" do
       time_0 / r.to_f
     end
   end
-
 end
 
 desc "Run benchmarks"
