@@ -46,7 +46,12 @@ $(document).ready(function () {
       grabValues(xValues, yValues, numLines);
 
       // Render the graph
-      var lines = r.g.linechart(30, 30, r.width - 50, r.height - 80, xValues, yValues,
+      var graph_x0 = 30;
+      var graph_y0 = 30;
+      var graph_x1 = r.width - 250;
+      var graph_y1 = r.height - 80;
+
+      var lines = r.g.linechart(graph_x0, graph_y0, graph_x1, graph_y1, xValues, yValues,
 		    { axisxstep: xValues[0].length, axisystep: xValues[0].length, nostroke: false, axis: "0 0 1 1", symbol: "o" }).hoverColumn(function () {
 		      this.tags = r.set();
 			for (var i = 0, ii = this.y.length; i < ii; i++) {
@@ -69,8 +74,8 @@ $(document).ready(function () {
       // Grab meta information
       var x_label = $("#meta p#x_label").text() || $($("th")[0]).text();
       var y_label = $("#meta p#y_label").text() ||  $($("th")[1]).text().match(/\((.*)\)/)[1];
-      var legend_xpos = parseInt($("#meta p#legend_xpos").text()) || 60;
-      var legend_ypos = parseInt($("#meta p#legend_ypos").text()) || 100;
+      var legend_xpos = parseInt($("#meta p#legend_xpos").text()) || graph_x1 + 50;
+      var legend_ypos = parseInt($("#meta p#legend_ypos").text()) || 40;
 
       r.text((lines.axis[0].getBBox().x + lines.axis[0].getBBox().width)/2, lines.axis[0].getBBox().y + 40, x_label).attr({ fill: "#fff", "font-size": 18 });
       r.text(lines.axis[1].getBBox().x - 30, (lines.axis[1].getBBox().y + lines.axis[1].getBBox().height)/2, y_label).rotate(-90).attr({ fill: "#fff", "font-size": 18 });

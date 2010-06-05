@@ -1,3 +1,8 @@
+<div id="meta">
+  <p id="x_label">GOMAXPROCS</p>
+  <p id="y_label">Speedup</p>
+</div>
+
 <p class="description">
 
 Generate a mandelbrot fractal of size <%= @size %>x<%= @size
@@ -7,13 +12,12 @@ maxIter increases. In other words, concurrency is better exploited
 when the load of work of a single goroutine increases.
 
 </p>
-<h1>Results</h1>
 <table>
   <tr>
     <th>GOMAXPROCS</th>
-    <th>Speedup 10 iter (time[0]/time[i])</th>    
-    <th>Speedup 100 iter (time[0]/time[i])</th>    
-    <th>Speedup 1000 iter (time[0]/time[i])</th>    
+    <th>Speedup 10 iter</th>    
+    <th>Speedup 100 iter</th>    
+    <th>Speedup 1000 iter</th>    
   </tr>
   <% @xvalues.zip(@yvalues['10'], @yvalues['100'], @yvalues['1000']).each do |row| %>
   <%= "<tr>" %>

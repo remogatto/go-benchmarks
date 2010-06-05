@@ -89,6 +89,7 @@ body {
 #benchmark p {
     margin-top: 20px;
     margin-bottom: 20px;
+    text-align: justify;
 }
 
 p span {
